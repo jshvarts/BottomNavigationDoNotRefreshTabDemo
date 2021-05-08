@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/tab0"
+        android:icon="@drawable/ic_home_24"
+        android:title="@string/fragment_title_0" />
+
+    <item
+        android:id="@+id/tab1"
+        android:icon="@drawable/ic_favorite_24"
+        android:title="@string/fragment_title_1" />
+
+    <item
+        android:id="@+id/tab2"
+        android:icon="@drawable/ic_account_24"
+        android:title="@string/fragment_title_2" />
+</menu>

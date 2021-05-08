@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Do Not Refresh Tab</string>
+    <string name="fragment_title_0">Tab 0</string>
+    <string name="fragment_title_1">Tab 1</string>
+    <string name="fragment_title_2">Tab 2</string>
+</resources>

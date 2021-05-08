@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tab0"
+    app:startDestination="@+id/fragment0">
+
+    <fragment
+        android:id="@+id/fragment0"
+        android:name="io.valueof.donotrefreshtab.ui.Fragment0"
+        android:label="@string/fragment_title_0"
+        tools:layout="@layout/fragment_0" />
+</navigation>
