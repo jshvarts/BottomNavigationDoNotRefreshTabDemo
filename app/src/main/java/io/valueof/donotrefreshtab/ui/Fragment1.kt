@@ -1,5 +1,6 @@
 package io.valueof.donotrefreshtab.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -19,7 +20,22 @@ class Fragment1 : Fragment(R.layout.fragment_1) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Timber.d("1: fragment create")
+        Timber.d("fragment onCreate")
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Timber.d("fragment onAttach")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Timber.d("fragment onDetach")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Timber.d("fragment onDestroyView")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,7 +50,7 @@ class Fragment1 : Fragment(R.layout.fragment_1) {
 
         lifecycleScope.launchWhenResumed {
             viewModel.itemList.collect { itemList ->
-                Timber.d("1: fragment load data ${itemList.size}")
+                Timber.d("fragment load data ${itemList.size}")
                 itemAdapter.submitList(itemList)
             }
         }

@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -8,7 +9,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "io.valueof.dynamicnavgraph"
+        applicationId "io.valueof.donotrefreshtab"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1

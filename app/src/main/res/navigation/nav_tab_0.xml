@@ -9,5 +9,25 @@
         android:id="@+id/fragment0"
         android:name="io.valueof.donotrefreshtab.ui.Fragment0"
         android:label="@string/fragment_title_0"
-        tools:layout="@layout/fragment_0" />
+        tools:layout="@layout/fragment_0">
+
+        <action
+            android:id="@+id/action_fragment_0_to_item_detail"
+            app:destination="@+id/itemDetail" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/itemDetail"
+        android:name="io.valueof.donotrefreshtab.ui.ItemDetailFragment"
+        android:label="@string/fragment_item_detail_title"
+        tools:layout="@layout/fragment_item_detail">
+
+        <argument
+            android:name="itemId"
+            app:argType="integer" />
+
+    </fragment>
+
+
 </navigation>

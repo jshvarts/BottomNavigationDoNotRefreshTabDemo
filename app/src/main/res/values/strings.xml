@@ -3,4 +3,6 @@
     <string name="fragment_title_0">Tab 0</string>
     <string name="fragment_title_1">Tab 1</string>
     <string name="fragment_title_2">Tab 2</string>
+    <string name="fragment_item_detail_title">Item Detail</string>
+    <string name="item_title_label">"Title: "</string>
 </resources>
