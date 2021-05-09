@@ -2,16 +2,27 @@ package io.valueof.donotrefreshtab
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import io.valueof.donotrefreshtab.databinding.ActivityMainBinding
 import io.valueof.donotrefreshtab.extensions.setupWithNavController
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private lateinit var binding: ActivityMainBinding
 
     private var currentNavController: LiveData<NavController>? = null
+
+    private val onDestinationChangedListener =
+        NavController.OnDestinationChangedListener { controller, destination, arguments ->
+            Timber.d("controller: $controller, destination: $destination, arguments: $arguments")
+            Timber.d("controller graph: ${controller.graph}")
+
+            // if you need to show/hide bottom nav or toolbar based on destination
+            // binding.bottomNavigationView.isVisible = destination.id != R.id.itemDetail
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +55,14 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         controller.observe(this) { navController ->
             setupActionBarWithNavController(navController)
+            
+            // unregister old onDestinationChangedListener, if it exists
+            currentNavController?.value?.removeOnDestinationChangedListener(
+                onDestinationChangedListener
+            )
+
+            // add onDestinationChangedListener to the new NavController
+            navController.addOnDestinationChangedListener(onDestinationChangedListener)
         }
 
         currentNavController = controller
